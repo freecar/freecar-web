@@ -15,8 +15,7 @@ The Javascript API of Parse is based on [Backbone.js](http://backbonejs.org/), s
 
 The Freecar web application is deployed on [Heroku](http://www.heroku.com/), a platform-as-a-service as a Ruby application. The config.ru is the body of the app, which basically serves the files as an HTTP server.
 
-The latest version of deployed app can be found at:
-(http://freecar.heroku.app)
+The latest version of deployment app can be found at: http://freecar.herokuapp.com.
 
 
 Requirements
