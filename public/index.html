@@ -59,7 +59,7 @@
               <td><%= route.get('time') %></td>
               <td><%= route.get('phone') %></td>
               <td><%= route.get('comment') %></td>
-              <td><a href="#/edit/<%= route.id %>" class="btn">Edit</a></td>
+              <td><a href="#/edit/<%= route.id %>" class="btn">Edit</a> <a href="#/reviews/<%= route.id %>" class="btn">Reviews</a></td>
             </tr>
           <% }); %>
         </tbody>
@@ -177,6 +177,10 @@
         </div>
       </script>
 
+      <script type="text/template" id="reviews-route-template">
+        <div class="fb-comments" data-width="470" data-num-posts="10"></div>
+      </script>
+
       <!-- App UI -->
       <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
@@ -240,6 +244,14 @@
       <!-- Le javascript
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=173398656175974";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
 
       <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
