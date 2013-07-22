@@ -1,6 +1,6 @@
 $(function() {
 
-  Parse.initialize("xfW0hJGl1D4CxjShU1rLTduq2Y9RGl8lIpLLKj3U", "Au6vRpaZyw7X241XvIY2dwVpAlczQ1w9roMHeyYD");
+  Parse.initialize("EIeotpfwEbYb60BJSXW6r8EPFF625L8vK9qgOA7R", "LKcBN7ZqSwwQX7OmY9Tv9xal2UhPh1RlpiaVGPzC");
 
   var Route = Parse.Object.extend("Routes", {
     defaults: {
