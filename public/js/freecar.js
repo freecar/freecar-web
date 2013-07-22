@@ -1,7 +1,6 @@
 $(function() {
 
-  Parse.initialize("EIeotpfwEbYb60BJSXW6r8EPFF625L8vK9qgOA7R", 
-                   "LKcBN7ZqSwwQX7OmY9Tv9xal2UhPh1RlpiaVGPzC");
+  Parse.initialize("xfW0hJGl1D4CxjShU1rLTduq2Y9RGl8lIpLLKj3U", "Au6vRpaZyw7X241XvIY2dwVpAlczQ1w9roMHeyYD");
 
   var Route = Parse.Object.extend("Routes", {
     defaults: {
@@ -183,6 +182,27 @@ $(function() {
     }
   });
 
+  var ReviewView = Parse.View.extend({
+    el: '.content',
+    initialize: function(id) {
+      this.render(id);
+    },
+    // @todo: Ideally the permalink method should resist in Route class
+    permalink: function(id) {
+      return window.location.hostname + '/route/' + id;
+    },
+    render: function(id) {
+      var that = this;
+      var template = _.template($('#reviews-route-template').html());
+      that.$el.html(template);
+      that.$('div.fb-comments').data('href', this.permalink(id));
+      // FB SDK is doing one-time parse at the end of page load
+      // We will need to do re-parse on other cases.
+      if(!_.isUndefined(FB)) {
+        FB.XFBML.parse();
+      }
+    }
+  })
 
   var routeList = new RouteList;
   var editRoute = new EditRoute;
@@ -191,7 +211,8 @@ $(function() {
     routes: {
       '': 'home',
       'new': 'new',
-      'edit/:id': 'edit'
+      'edit/:id': 'edit',
+      'reviews/:id': 'reviews'
     },
     home: function() {
       if (Parse.User.current()) {
@@ -205,6 +226,9 @@ $(function() {
     },
     edit: function(id) {
       editRoute.render({id: id});
+    },
+    reviews: function(id) {
+      new ReviewView(id);
     }
   });
 
