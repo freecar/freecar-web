@@ -1,1 +1,21 @@
-body{margin-top:60px}.centered-span{margin:0 auto;float:none}#credits{text-align:center}.modal form{margin-bottom:0}@media(max-width:979px){body{margin:0}}
+body {
+  margin-top: 60px;
+}
+.centered-span {
+  margin: 0 auto;
+  float: none;
+}
+#credits {
+  text-align: center;
+}
+.modal form {
+  margin-bottom: 0;
+}
+.modal#loginModal .modal-header {
+  border: 0;
+}
+@media (max-width: 979px) {
+  body {
+    margin: 0;
+  }
+}

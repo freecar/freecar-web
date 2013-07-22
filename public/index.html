@@ -153,28 +153,7 @@
           <% }); %>
         </tbody>
       </table>
-        <form class="login-form">
-          <fieldset>
-            <legend>Log In</legend>
-            <div class="error alert alert-error" style="display:none">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-            </div>
-            <input type="text" id="login-username" placeholder="Username" /><br>
-            <input type="password" id="login-password" placeholder="Password" /><br>
-            <button class="btn btn-primary">Log In</button>
-          </fieldset>
-        </form>
-        <form class="signup-form">
-          <fieldset>
-            <legend>Sign Up</legend>
-            <div class="error alert alert-error" style="display:none">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-            </div>
-            <input type="text" id="signup-username" placeholder="Username" /><br>
-            <input type="password" id="signup-password" placeholder="Create a Password" /><br>
-            <button class="btn">Sign Up</button>
-          </form>
-        </div>
+      
       </script>
 
       <!-- App UI -->
@@ -206,7 +185,7 @@
                 </li>
               </ul>
               <ul class="nav pull-right">
-                <li><a href="#" class="logout">Logout</a></li>
+                <li><a href="#loginModal" role="button" data-toggle="modal">Login / Sign Up</a></li>
               </ul>
               <!-- <form class="navbar-form pull-right">
                 <input class="span2" type="text" placeholder="Email">
@@ -231,7 +210,71 @@
           </div>
         </div>
       </footer>
+      <div class="modal hide fade" id="loginModal">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#login-form" data-toggle="tab"><h3>Login</h3></a></li>
+            <li><a href="#signup-form" data-toggle="tab"><h3>Sign-Up</h3></a></li>
+          </ul>
+
+        </div>
+        <div class="modal-body">
+          <div class="tab-content">
+            <div class="tab-pane active" id="login-form">
+              <form class="login-form form-horizontal">
+                <div class="error alert alert-error" style="display:none">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Username</label>
+                  <div class="controls">
+                     <input type="text" id="login-username" placeholder="" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Password</label>
+                  <div class="controls">
+                     <input type="password" id="login-password" placeholder="" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"></label>
+                  <div class="controls">
+                    <button class="btn btn-primary">Log In</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane" id="signup-form">
+              <form class="signup-form form-horizontal">
+                <div class="error alert alert-error" style="display:none">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Username</label>
+                  <div class="controls">
+                     <input type="text" id="signup-username" placeholder="" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Create Password</label>
+                  <div class="controls">
+                     <input type="password" id="signup-password" placeholder="" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"></label>
+                  <div class="controls">
+                    <button class="btn btn-primary">Sign Up</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="modal hide fade" id="editModal">
         
         
