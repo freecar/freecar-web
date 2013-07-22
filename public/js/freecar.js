@@ -47,7 +47,7 @@ $(function() {
   });
 
   var EditRoute = Parse.View.extend({
-    el: '.content',
+    el: '#editModal',
     initialize: function() {
       this.routes = new Routes;
     },
@@ -59,11 +59,15 @@ $(function() {
           success: function(route) {
             var template = _.template($('#edit-route-template').html(), {route: route});
             that.$el.html(template);
+            that.$el.modal("show");
+            router.navigate('', {trigger: true});
           }
         })
       } else {
         var template = _.template($('#edit-route-template').html(), {route: null});
         this.$el.html(template);
+        this.$el.modal("show");
+        router.navigate('', {trigger: true});
       }
     },
     events: {

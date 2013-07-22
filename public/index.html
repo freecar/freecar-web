@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>freecar: free routes</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FreeCar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="css/freecar.css">
+    <!-- Le styles -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/freecar.css" rel="stylesheet"> -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
 
-        <!--[if lt IE 9]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
-        <![endif]-->
-    </head>
-    <body>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="ico/favicon.png">
+  </head>
+  <body>
 
       <!-- Templates -->
       <script type="text/template" id="add-route-template">
@@ -35,7 +38,7 @@
       <a href="#/new" class="btn btn-primary">Add route</a>
       <div style="float:right"><a href="#" class="logout">Logout</a></div>
       <hr />
-      <table class="table striped">
+      <table class="table table-striped table-hover">
         <thead>
           <tr>
             <th>Name</th>
@@ -64,32 +67,64 @@
       </script>
 
       <script type="text/template" id="edit-route-template">
-        <form class="edit-route-form">
-          <fieldset>
-            <legend><%= route ? 'Edit' : 'Create' %> route</legend>
-            <label>Name</label>
-            <input type="text" class="name" name="name" value="<%= route ? route.get('name'):''%>" />
-            <label>From</label>
-            <input type="text" class="from" name="from" value="<%= route ? route.get('from'):''%>" />
-            <label>To</label>
-            <input type="text" class="to" name="to" value="<%= route ? route.get('to'):''%>" />
-            <label>Time</label>
-            <input type="time" class="time" name="time" value="<%= route ? route.get('time'):''%>" />
-            <label>Phone</label>
-            <input type="tel" class="phone" name="phone" value="<%= route ? route.get('phone'):''%>" />
-            <label>Comment</label>
-            <input type="text" class="comment" name="comment" value="<%= route ? route.get('comment'):''%>" />
-            <hr />
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3><%= route ? 'Edit' : 'Create' %> route</h3>
+        </div>
+
+        <form class="edit-route-form form-horizontal">
+          <div class="modal-body">
+            <fieldset>
+              <div class="control-group">
+                <label class="control-label">Name</label>
+                <div class="controls">
+                  <input type="text" class="name" name="name" value="<%= route ? route.get('name'):''%>" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">From</label>
+                <div class="controls">
+                  <input type="text" class="from" name="from" value="<%= route ? route.get('from'):''%>" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">To</label>
+                <div class="controls">
+                  <input type="text" class="to" name="to" value="<%= route ? route.get('to'):''%>" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Time</label>
+                <div class="controls">
+                  <input type="time" class="time" name="time" value="<%= route ? route.get('time'):''%>" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Phone</label>
+                <div class="controls">
+                  <input type="tel" class="phone" name="phone" value="<%= route ? route.get('phone'):''%>" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Comment</label>
+                <div class="controls">
+                  <input type="text" class="comment" name="comment" value="<%= route ? route.get('comment'):''%>" />
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="modal-footer">
             <% if(route) { %>
               <input type="hidden" class="id" value="<%= route.id %>" />
             <% } %>
-            <button type="submit" class="btn" id="uploadbutton"><%= route ? 'Update' : 'Create' %></button>
-            <a href="#" class="cancel">Cancel</a>
+            <button type="submit" class="btn btn-primary" id="uploadbutton"><%= route ? 'Update' : 'Create' %></button>
+            <a href="#" class="btn" data-dismiss="modal">Cancel</a>
             <% if(route) { %>
               <button style="float:right" type="submit" class="btn btn-danger delete">Delete</button>
-            <% } %>
-          </fieldset>
+            <% } %>  
+          </div>
         </form>
+      
       </script>
 
       <script type="text/template" id="login-template">
@@ -118,28 +153,78 @@
       </script>
 
       <!-- App UI -->
-
-      <div id="freecar">
-        <div class="title">
-          <h1>freecar</h1>
-          <hr />
-        </div>
-
-        <div class="content">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">FreeCar</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav pull-right">
+                <li><a href="#" class="logout">Logout</a></li>
+              </ul>
+              <!-- <form class="navbar-form pull-right">
+                <input class="span2" type="text" placeholder="Email">
+                <input class="span2" type="password" placeholder="Password">
+                <button type="submit" class="btn">Sign in</button>
+              </form> -->
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
 
-      <div id="credits">
-        Powered by <a href="https://www.parse.com">Parse</a> using the <a href="https://www.parse.com/docs/js_guide">JavaScript SDK</a>
+      <div id="freecar" class="container">
+        
+          <div class="content">
+          </div>
       </div>
+
+      <footer>
+        <div id="credits" class="container">
+          <div class="span6 centered-span">
+            <small>Powered by <a href="https://www.parse.com">Parse</a> using the <a href="https://www.parse.com/docs/js_guide">JavaScript SDK</a></small>
+          </div>
+        </div>
+      </footer>
+
+      <div class="modal hide fade" id="editModal">
+        
+        
+        
+      </div>
+      <!-- Le javascript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
 
       <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+      <!-- <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
       <script src="js/vendor/bootstrap.min.js"></script>
       <script src="js/vendor/underscore-min.js"></script>
       <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
       <script type="text/javascript" src="js/vendor/load-image.min.js"></script>
       <script type="text/javascript" src="js/freecar.js"></script>
+
 
     </body>
 </html>
