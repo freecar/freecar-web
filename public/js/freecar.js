@@ -26,7 +26,7 @@ $(function() {
       var template = _.template($('#add-route-template').html());
       that.$el.html(template);
       routes.query = new Parse.Query(Route);
-      //routes.query.equalTo("user", Parse.User.current());
+      routes.query.equalTo('user', Parse.User.current());
       routes.fetch({
         success: function (routes) {
           var template = _.template($('#route-list-template').html(), 
@@ -80,15 +80,14 @@ $(function() {
       route.set('time',    this.$('.time').val());
       route.set('phone',   this.$('.phone').val());
       route.set('comment', this.$('.comment').val());
-      var user = Parse.User.current();
-      //route.set('user', user);
+      route.set('user', Parse.User.current());
       route.set('id', this.$('.id').val());
       route.save(null, {
         success: function(route) {
           router.navigate('', {trigger: true});
         },
-        error: function(route) {
-          console.log('error creating new route');
+        error: function(route, error) {
+          console.log('error: ' + error.code + ' ' + error.message);
         }
       });
       return false;
