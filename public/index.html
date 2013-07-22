@@ -64,7 +64,7 @@
           <% }); %>
         </tbody>
       </table>
-      </script>
+      </script>     
 
       <script type="text/template" id="edit-route-template">
         <div class="modal-header">
@@ -127,7 +127,32 @@
       
       </script>
 
-      <script type="text/template" id="login-template">
+      <script type="text/template" id="public-view-template">
+      <legend>All Routes</legend>
+            <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Time</th>
+            <th>Phone</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% _.each(routes, function(route) { %>
+            <tr>
+              <td><%= route.get('name') %></td>
+              <td><%= route.get('from') %></td>
+              <td><%= route.get('to') %></td>
+              <td><%= route.get('time') %></td>
+              <td><%= route.get('phone') %></td>
+              <td><%= route.get('comment') %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
         <form class="login-form">
           <fieldset>
             <legend>Log In</legend>

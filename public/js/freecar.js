@@ -169,7 +169,16 @@ $(function() {
     },
 
     render: function() {
-      this.$el.html(_.template($("#login-template").html()));
+      var that = this;
+      var routes = new Routes;
+      routes.query = new Parse.Query(Route);
+      routes.fetch({
+        success: function (routes) {
+          var template = _.template($('#public-view-template').html(), 
+            {routes: routes.models});
+          that.$el.html(template);
+        }
+      })  
       this.delegateEvents();
     }
   });
