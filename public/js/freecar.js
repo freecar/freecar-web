@@ -31,6 +31,10 @@ $(function() {
           var template = _.template($('#route-list-template').html(), 
             {routes: routes.models});
           that.$el.html(template);
+          setTimeout(function(){
+            updateTables();
+          }, 200);
+          
         }
       })
     },

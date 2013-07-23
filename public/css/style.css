@@ -1,6 +1,5 @@
 body {
   margin-top: 60px;
-  overflow-x: hidden;
 }
 a.brand small {
   font-size: 12px;
@@ -24,9 +23,5 @@ a.brand small {
 @media (max-width: 979px) {
   body {
     margin: 0;
-    padding: 0 5px;
-  }
-  .navbar-inner {
-    padding: 0 20px !important;
   }
 }
