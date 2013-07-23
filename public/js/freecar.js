@@ -133,7 +133,7 @@ $(function() {
         success: function(user) {
           routeList.render();
           self.undelegateEvents();
-          $(".modal:visible").modal("hide");
+          
           delete self;
           if (!user.existed()) {
             alert("User signed up and logged in through Facebook!");
@@ -145,6 +145,7 @@ $(function() {
           alert("User cancelled the Facebook login or did not fully authorize.");
         }
       });
+      $(".modal:visible").modal("hide");
     },
 
     logIn: function(e) {
