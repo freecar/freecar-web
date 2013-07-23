@@ -183,10 +183,22 @@ $(function() {
           
           //updateTables();
           //init dataTable
-          $('#routestable').dataTable({
+          var oTable = $('#routestable').dataTable({
           "bPaginate": false,
           "bLengthChange": false,
           "oLanguage": { "sSearch": "Փնտրել" } 
+          });
+          that.$el.find("a.use-this-filter").click(function(ev){
+            ev.preventDefault();
+            oTable.fnFilter( $(this).text() );
+            $(".back-to-routes span").html($(this).text());
+            $(".back-to-routes").show();
+            $(".dataTables_filter").hide();
+          });
+          $(".back-to-routes").click(function(){
+            oTable.fnFilter("");
+            $(".back-to-routes").hide();
+            $(".dataTables_filter").show();
           });
         }
       })  

@@ -133,6 +133,7 @@
 
       <script type="text/template" id="public-view-template">
       <legend>Բոլոր Երթուղիները</legend>
+      <button class="btn back-to-routes">Մաքրել '<span></span>' ֆիլտրը</button>
       <table class="table-route-list table-striped table-bordered table-hover responsive" id="routestable">
         <thead>
           <tr>
@@ -146,7 +147,7 @@
         <tbody>
           <% _.each(routes, function(route) { %>
             <tr>
-              <td><%= route.get('from') %> &mdash; <%= route.get('to') %></td>
+              <td><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
               <td><%= route.get('name') %></td>
               <td><%= route.get('time') %></td>
               <td><%= route.get('phone') %></td>
