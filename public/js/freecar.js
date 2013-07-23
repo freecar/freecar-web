@@ -177,6 +177,7 @@ $(function() {
             {routes: routes.models});
           that.$el.html(template);
           
+          //updateTables();
           //init dataTable
           $('#routestable').dataTable({
         "bPaginate": false,
