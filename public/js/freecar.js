@@ -184,8 +184,9 @@ $(function() {
           //updateTables();
           //init dataTable
           $('#routestable').dataTable({
-        "bPaginate": false,
-        "bLengthChange": false
+          "bPaginate": false,
+          "bLengthChange": false,
+          "oLanguage": { "sSearch": "Փնտրել" } 
           });
         }
       })  
