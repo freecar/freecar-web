@@ -210,9 +210,9 @@ $(function() {
             $(".back-to-routes-container").hide();
             $(".dataTables_filter").show();
           });
-           setTimeout(function(){
-             updateTables();
-          },300);
+          //  setTimeout(function(){
+          //    updateTables();
+          // },300);
         }
       })  
       this.delegateEvents();
