@@ -126,6 +126,25 @@ $(function() {
       var username = this.$("#login-username").val();
       var password = this.$("#login-password").val();
 
+      Parse.FacebookUtils.logIn(null, {
+        success: function(user) {
+          if (!user.existed()) {
+            alert("User signed up and logged in through Facebook!");
+          } else {
+            alert("User logged in through Facebook!");
+          }
+          routeList.render()
+          self.undelegateEvents();
+          delete self;
+        },
+        error: function(user, error) {
+          alert("User cancelled the Facebook login or did not fully authorize.");
+          self.$(".login-form .error").html("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Invalid username or password. Please try again.").show();
+          this.$(".login-form button").removeAttr("disabled");
+        }
+      });
+
+/*
       Parse.User.logIn(username, password, {
         success: function(user) {
           routeList.render()
@@ -138,7 +157,7 @@ $(function() {
           this.$(".login-form button").removeAttr("disabled");
         }
       });
-
+*/
       this.$(".login-form button").attr("disabled", "disabled");
 
       return false;
