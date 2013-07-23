@@ -136,13 +136,13 @@ $(function() {
           $(".modal:visible").modal("hide");
           delete self;
           if (!user.existed()) {
-            alert("User signed up and logged in through Facebook!");
+            // User signed up and logged in through Facebook
           } else {
-            alert("User logged in through Facebook!");
+            // User logged in through Facebook
           }
         },
         error: function(user, error) {
-          alert("User cancelled the Facebook login or did not fully authorize.");
+          // User cancelled the Facebook login or did not fully authorize
         }
       });
     },
