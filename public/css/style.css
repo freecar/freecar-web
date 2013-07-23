@@ -24,5 +24,9 @@ a.brand small {
 @media (max-width: 979px) {
   body {
     margin: 0;
+    padding: 0 5px;
+  }
+  .navbar-inner {
+    padding: 0 20px !important;
   }
 }
