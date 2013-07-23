@@ -88,11 +88,14 @@ $(function() {
       route.save(null, {
         success: function(route) {
           router.navigate('', {trigger: true});
+          routeList.render();
         },
+
         error: function(route, error) {
           console.log('error: ' + error.code + ' ' + error.message);
         }
       });
+      $(".modal:visible").modal("hide");
       return false;
     },
     deleteRoute: function(ev) {
@@ -138,7 +141,7 @@ $(function() {
           this.$(".login-form button").removeAttr("disabled");
         }
       });
-      
+
       $(".modal:visible").modal("hide");
       this.$(".login-form button").attr("disabled", "disabled");
 
