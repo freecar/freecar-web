@@ -35,16 +35,6 @@ footer .footer-links li {
 .dataTables_wrapper {
   width: 100%;
 }
-table.dataTable thead tr th {
-  line-height: 30px !important;
-  padding: 0 5px !important;
-  color: red;
-}
-.pinned table.dataTable thead tr th {
-  line-height: 30px !important;
-  padding: 0 5px !important;
-  color: blue;
-}
 .back-to-routes-container {
   width: 100%;
   display: none;
