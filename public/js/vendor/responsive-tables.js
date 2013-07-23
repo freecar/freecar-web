@@ -1,6 +1,6 @@
-$(document).ready(function() {
+
   var switched = false;
-  var updateTables = function() {
+ function updateTables() {
     if (($(window).width() < 767) && !switched ){
       switched = true;
       $("table.responsive").each(function(i, element) {
@@ -16,7 +16,7 @@ $(document).ready(function() {
     }
   };
    
-  $(window).load(updateTables);
+
   $(window).on("redraw",function(){switched=false;updateTables();}); // An event to listen for
   $(window).on("resize", updateTables);
    
@@ -64,4 +64,4 @@ $(document).ready(function() {
     });
   }
 
-});
+
