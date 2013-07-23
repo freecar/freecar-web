@@ -128,7 +128,7 @@ $(function() {
 
       Parse.User.logIn(username, password, {
         success: function(user) {
-          routeList.render()
+          routeList.render();
           self.undelegateEvents();
           delete self;
         },
@@ -138,7 +138,8 @@ $(function() {
           this.$(".login-form button").removeAttr("disabled");
         }
       });
-
+      
+      $(".modal:visible").modal("hide");
       this.$(".login-form button").attr("disabled", "disabled");
 
       return false;
