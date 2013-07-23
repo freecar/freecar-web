@@ -152,7 +152,7 @@
             <% _.each(routes, function(route) { %>
               <tr>
                 <td><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
-                <td><%= route.get('name') %></td>
+                <td><%= fbImage(route.get('fbid')) %> <%= route.get('name') %></td>
                 <td><%= route.get('time') %></td>
                 <td><%= route.get('phone') %></td>
                 <td><%= route.get('comment') %></td>
@@ -333,6 +333,14 @@
            js.src = "//connect.facebook.net/en_US/all.js";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
+
+        function fbImage(fbid) {
+          var ret = ""
+          if (typeof fbid !== "undefined") {
+            ret = '<a href="http://facebook.com/' + fbid + '"><img height="20%" width="20%" src="http://graph.facebook.com/' + fbid + '/picture" /></a>';
+          }
+          return ret;
+        };
       </script> 
 
     </body>
