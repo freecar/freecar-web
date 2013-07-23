@@ -96,7 +96,7 @@ $(function() {
             route.set('id', this.$('.id').val());
             route.save(null, {
                 success: function(route) {
-                    router.navigate('', {trigger: true});
+                    router.navigate('', {trigger: false});
                     routeList.render();
                 },
                 error: function(route, error) {
