@@ -102,6 +102,8 @@ $(function() {
       this.route.destroy({
         success: function() {
           router.navigate('', {trigger: true});
+          routeList.render();
+          $(".modal:visible").modal("hide");
         }
       })
       return false;
