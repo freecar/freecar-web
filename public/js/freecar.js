@@ -88,11 +88,14 @@ $(function() {
       route.save(null, {
         success: function(route) {
           router.navigate('', {trigger: true});
+          routeList.render();
         },
+
         error: function(route, error) {
           console.log('error: ' + error.code + ' ' + error.message);
         }
       });
+      $(".modal:visible").modal("hide");
       return false;
     },
     deleteRoute: function(ev) {
@@ -111,14 +114,34 @@ $(function() {
   var LogInView = Parse.View.extend({
     events: {
       "submit form.login-form": "logIn",
-      "submit form.signup-form": "signUp"
+      "submit form.signup-form": "signUp",
+      "click .fb-login": "facebookLogin"
     },
 
     el: ".content",
 
     initialize: function() {
-      _.bindAll(this, "logIn", "signUp");
+      _.bindAll(this, "logIn", "signUp", "facebookLogin");
       this.render();
+    },
+
+    facebookLogin: function(e) {
+      var self = this;
+      Parse.FacebookUtils.logIn('email', {
+        success: function(user) {
+          routeList.render();
+          self.undelegateEvents();
+          delete self;
+          if (!user.existed()) {
+            alert("User signed up and logged in through Facebook!");
+          } else {
+            alert("User logged in through Facebook!");
+          }
+        },
+        error: function(user, error) {
+          alert("User cancelled the Facebook login or did not fully authorize.");
+        }
+      });
     },
 
     logIn: function(e) {
@@ -126,28 +149,9 @@ $(function() {
       var username = this.$("#login-username").val();
       var password = this.$("#login-password").val();
 
-      Parse.FacebookUtils.logIn(null, {
-        success: function(user) {
-          if (!user.existed()) {
-            alert("User signed up and logged in through Facebook!");
-          } else {
-            alert("User logged in through Facebook!");
-          }
-          routeList.render()
-          self.undelegateEvents();
-          delete self;
-        },
-        error: function(user, error) {
-          alert("User cancelled the Facebook login or did not fully authorize.");
-          self.$(".login-form .error").html("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Invalid username or password. Please try again.").show();
-          this.$(".login-form button").removeAttr("disabled");
-        }
-      });
-
-/*
       Parse.User.logIn(username, password, {
         success: function(user) {
-          routeList.render()
+          routeList.render();
           self.undelegateEvents();
           delete self;
         },
@@ -157,7 +161,8 @@ $(function() {
           this.$(".login-form button").removeAttr("disabled");
         }
       });
-*/
+
+      $(".modal:visible").modal("hide");
       this.$(".login-form button").attr("disabled", "disabled");
 
       return false;
