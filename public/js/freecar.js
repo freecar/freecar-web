@@ -116,14 +116,34 @@ $(function() {
   var LogInView = Parse.View.extend({
     events: {
       "submit form.login-form": "logIn",
-      "submit form.signup-form": "signUp"
+      "submit form.signup-form": "signUp",
+      "click .fb-login": "facebookLogin"
     },
 
     el: ".content",
 
     initialize: function() {
-      _.bindAll(this, "logIn", "signUp");
+      _.bindAll(this, "logIn", "signUp", "facebookLogin");
       this.render();
+    },
+
+    facebookLogin: function(e) {
+      var self = this;
+      Parse.FacebookUtils.logIn('email', {
+        success: function(user) {
+          routeList.render();
+          self.undelegateEvents();
+          delete self;
+          if (!user.existed()) {
+            alert("User signed up and logged in through Facebook!");
+          } else {
+            alert("User logged in through Facebook!");
+          }
+        },
+        error: function(user, error) {
+          alert("User cancelled the Facebook login or did not fully authorize.");
+        }
+      });
     },
 
     logIn: function(e) {
