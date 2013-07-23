@@ -20,6 +20,12 @@ $(function() {
     var RouteList = Parse.View.extend({
         el: '.content',
         render: function() {
+            
+            if(Parse.User.current()){
+                
+                $('#login-button').hide();
+            }
+            
             var that = this;
             var routes = new Routes;
             var template = _.template($('#add-route-template').html());
@@ -38,6 +44,9 @@ $(function() {
             'click .logout': 'logOut'
         },
         logOut: function(e) {
+            
+            $('#login-button').show();
+            
             Parse.User.logOut();
             new LogInView();
             this.undelegateEvents();
@@ -127,6 +136,9 @@ $(function() {
             var self = this;
             Parse.FacebookUtils.logIn('email', {
                 success: function(user) {
+                    
+                    $('#login-button').hide();
+                    
                     routeList.render();
                     self.undelegateEvents();
 
@@ -150,18 +162,20 @@ $(function() {
 
             Parse.User.logIn(username, password, {
                 success: function(user) {
+                    
+                    $('#login-button').hide();
+                    
                     routeList.render();
                     self.undelegateEvents();
                     delete self;
+                    $(".modal:visible").modal("hide");
                 },
                 error: function(user, error) {
-                    self.$(".login-form .error").html("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Invalid username or password. Please try again.").show();
-                    this.$(".login-form button").removeAttr("disabled");
+                    self.$(".login-form .error")
+                        .html("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Invalid username or password. Please try again.")
+                        .show();
                 }
             });
-
-            $(".modal:visible").modal("hide");
-            this.$(".login-form button").attr("disabled", "disabled");
 
             return false;
         },
@@ -172,13 +186,15 @@ $(function() {
 
             Parse.User.signUp(username, password, {ACL: new Parse.ACL()}, {
                 success: function(user) {
+                    
+                    $('#login-button').hide();
+                    
                     routeList.render()
                     self.undelegateEvents();
                     delete self;
                 },
                 error: function(user, error) {
                     self.$(".signup-form .error").html(error.message).show();
-                    this.$(".signup-form button").removeAttr("disabled");
                 }
             });
 
