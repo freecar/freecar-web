@@ -1,29 +1,30 @@
 body {
-  margin-top: 60px;
+    margin-top: 60px;
 }
 a.brand small {
-  font-size: 12px;
+    font-size: 12px;
 }
 .centered-span {
-  margin: 0 auto;
-  float: none;
+    margin: 0 auto;
+    float: none;
 }
 #credits {
-  text-align: center;
+    padding: 10px;
+    text-align: center;
 }
 .table-route-list {
-  width: 100%;
+    width: 100%;
 }
 .modal form {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 .modal#loginModal .modal-header {
-  border: 0;
+    border: 0;
 }
 @media (max-width: 979px) {
-  body {
-    margin: 0;
-  }
+    body {
+        margin: 0;
+    }
 }
 
 
