@@ -23,3 +23,62 @@ body{
 		margin: 0;
 	}
 }
+
+
+//datatable
+
+/*datatable*/
+
+th.sorting,
+th.sorting_asc,
+th.sorting_desc,
+th.sorting_asc_disabled,
+th.sorting_desc_disabled {
+    cursor: pointer;
+}
+
+th.sorting:after,
+th.sorting_asc:after,
+th.sorting_desc:after,
+th.sorting_asc_disabled:after,
+th.sorting_desc_disabled:after {
+    content: "";
+    float: right;
+    margin-top: 7px;
+    border-width: 0 4px 4px;
+    border-style: solid;
+    border-color: #000000 transparent;
+    visibility: hidden;
+}
+
+th.sorting:hover:after,
+th.sorting_asc:hover:after,
+th.sorting_desc:hover:after,
+th.sorting_asc_disabled:hover:after,
+th.sorting_desc_disabled:hover:after{
+    visibility: visible;
+}
+th.sorting_asc:after, th.sorting_desc:hover:after {
+    visibility: visible;
+    /*filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;*/
+}
+th.sorting_desc:after {
+    border-bottom: none;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #000000;
+    visibility: visible;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    /*filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;*/
+}
+
+
+table.routestable th:active {
+    outline: none;
+}

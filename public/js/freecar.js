@@ -176,6 +176,12 @@ $(function() {
           var template = _.template($('#public-view-template').html(), 
             {routes: routes.models});
           that.$el.html(template);
+          
+          //init dataTable
+          $('#routestable').dataTable({
+        "bPaginate": false,
+        "bLengthChange": false
+          });
         }
       })  
       this.delegateEvents();
