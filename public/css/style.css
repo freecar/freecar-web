@@ -26,6 +26,10 @@ footer .footer-links li {
   padding: 10px;
   text-align: center;
 }
+.route-table-wrapper {
+  width: 100%;
+  overflow: auto;
+}
 .table-route-list {
   width: 100%;
 }

@@ -136,28 +136,30 @@
       <div class="back-to-routes-container">
         <button class="btn back-to-routes">Մաքրել '<span></span>' ֆիլտրը</button>
       </div>
-      <table class="table-route-list table table-striped table-bordered table-hover responsive" id="routestable">
-        <thead>
-          <tr>
-            <th>Երթուղի</th>
-            <th>Վարորդ</th>
-            <th>Ժամը</th>
-            <th>Հեռախոս</th>
-            <th>Այլ ինֆորմացիա</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% _.each(routes, function(route) { %>
+      <div class="route-table-wrapper">
+        <table class="table-route-list table table-striped table-bordered table-hover responsive" id="routestable">
+          <thead>
             <tr>
-              <td><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
-              <td><%= route.get('name') %></td>
-              <td><%= route.get('time') %></td>
-              <td><%= route.get('phone') %></td>
-              <td><%= route.get('comment') %></td>
+              <th>Երթուղի</th>
+              <th>Վարորդ</th>
+              <th>Ժամը</th>
+              <th>Հեռախոս</th>
+              <th>Այլ ինֆորմացիա</th>
             </tr>
-          <% }); %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% _.each(routes, function(route) { %>
+              <tr>
+                <td><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
+                <td><%= route.get('name') %></td>
+                <td><%= route.get('time') %></td>
+                <td><%= route.get('phone') %></td>
+                <td><%= route.get('comment') %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
       <div class="modal hide fade" id="loginModal">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
