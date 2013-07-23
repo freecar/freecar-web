@@ -22,6 +22,9 @@ footer .footer-links li {
   display: inline;
   padding: 0 2px;
 }
+.fb-connect-button-wrapper {
+  text-align: center;
+}
 #credits {
   padding: 10px;
   text-align: center;
@@ -51,6 +54,12 @@ footer .footer-links li {
 }
 .modal#loginModal .modal-header {
   border: 0;
+}
+.modal#loginModal .modal-header .nav {
+  margin-bottom: 0;
+}
+.fb-login img {
+  width: 200px;
 }
 @media (max-width: 979px) {
   body {

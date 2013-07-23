@@ -133,6 +133,7 @@ $(function() {
         success: function(user) {
           routeList.render();
           self.undelegateEvents();
+          $(".modal:visible").modal("hide");
           delete self;
           if (!user.existed()) {
             alert("User signed up and logged in through Facebook!");
