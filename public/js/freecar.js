@@ -185,26 +185,38 @@ $(function() {
           
           //updateTables();
           //init dataTable
+
+         
           var oTable = $('#routestable').dataTable({
           "bPaginate": false,
           "bLengthChange": false,
           "oLanguage": { "sSearch": "Փնտրել" } 
           });
-          that.$el.find("a.use-this-filter").click(function(ev){
+
+
+          $("body").delegate("a.use-this-filter", "click", function(ev) {
             ev.preventDefault();
             oTable.fnFilter( $(this).text() );
             $(".back-to-routes span").html($(this).text());
-            $(".back-to-routes").show();
+            $(".back-to-routes-container").show();
             $(".dataTables_filter").hide();
           });
+
+          // $("a.use-this-filter").click(function(ev){
+            
+          // });
           $(".back-to-routes").click(function(){
             oTable.fnFilter("");
-            $(".back-to-routes").hide();
+            $(".back-to-routes-container").hide();
             $(".dataTables_filter").show();
           });
+           setTimeout(function(){
+             updateTables();
+          },300);
         }
       })  
       this.delegateEvents();
+
     }
   });
 
