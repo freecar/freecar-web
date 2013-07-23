@@ -12,6 +12,9 @@ a.brand small {
 #credits {
   text-align: center;
 }
+.table-route-list {
+  width: 100%;
+}
 .modal form {
   margin-bottom: 0;
 }
