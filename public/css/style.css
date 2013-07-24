@@ -1,6 +1,9 @@
 body {
   margin-top: 65px;
 }
+a {
+  outline: none !important;
+}
 a.brand {
   line-height: 30px;
 }
@@ -19,8 +22,11 @@ a.brand small {
   background: #F6F6F6;
   padding: 0;
 }
-.navbar-inner ul.nav li a {
+.navbar-inner ul.nav li {
   line-height: 32px;
+}
+.navbar-inner #login-button {
+  margin-top: 10px;
 }
 p {
   font-size: 12px;
