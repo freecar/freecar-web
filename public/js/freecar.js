@@ -213,6 +213,7 @@ $(function() {
             var that = this;
             var routes = new Routes;
             routes.query = new Parse.Query(Route);
+            routes.query.limit(500);
             routes.fetch({
                 success: function(routes) {
                     var template = _.template($('#public-view-template').html(),
