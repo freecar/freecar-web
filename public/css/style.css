@@ -14,6 +14,12 @@ a.brand img {
 a.brand small {
   font-size: 12px;
 }
+.content-loader {
+  margin: 100px auto;
+  display: block;
+  width: 32px;
+  height: 32px;
+}
 .navbar-inner {
   -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
