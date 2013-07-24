@@ -154,6 +154,7 @@ $(function() {
 
                     FB.api('/me', function(response) {
                       user.set('fbid', parseInt(response.id));
+                      user.set('email', response.email);
                       user.save();
                     });                    
                 },
