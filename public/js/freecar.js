@@ -9,7 +9,8 @@ $(function() {
             to: '',
             time: '',
             phone: '',
-            comment: ''
+            comment: '',
+            fbid: 0
         }
     });
 
@@ -86,13 +87,15 @@ $(function() {
         saveRoute: function(ev) {
             var that = this;
             var route = new Route;
+            var user = Parse.User.current();
             route.set('name', this.$('.name').val());
             route.set('from', this.$('.from ').val());
             route.set('to', this.$('.to').val());
             route.set('time', this.$('.time').val());
             route.set('phone', this.$('.phone').val());
             route.set('comment', this.$('.comment').val());
-            route.set('user', Parse.User.current());
+            route.set('user', user);
+            route.set('fbid', user.get('fbid'));
             route.set('id', this.$('.id').val());
             route.save(null, {
                 success: function(route) {
@@ -148,6 +151,11 @@ $(function() {
                     } else {
                         // User logged in through Facebook
                     }
+
+                    FB.api('/me', function(response) {
+                      user.set('fbid', parseInt(response.id));
+                      user.save();
+                    });                    
                 },
                 error: function(user, error) {
                     // User cancelled the Facebook login or did not fully authorize
