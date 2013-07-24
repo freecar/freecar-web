@@ -177,7 +177,14 @@
             <% _.each(routes, function(route) { %>
               <tr>
                 <td><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
-                <td><%= fbImage(route.get('fbid')) %> <%= route.get('name') %></td>
+                <td>
+                    <% if(route.get('fbid')) { %>
+                    <a target="_blank" href='http://facebook.com/<%= route.get("fbid") %>'><%= fbImage(route.get('fbid')) %></a>
+                    <a target="_blank" href='http://facebook.com/<%= route.get("fbid") %>'><%= route.get('name') %></a>
+                    <% } else { %>
+                    <%= route.get('name') %>
+                    <% } %>
+                </td>
                 <td><%= route.get('time') %></td>
                 <td><%= route.get('phone') %></td>
                 <td><%= route.get('comment') %></td>
@@ -362,7 +369,7 @@
         function fbImage(fbid) {
           var ret = ""
           if (typeof fbid !== "undefined") {
-            ret = '<a href="http://facebook.com/' + fbid + '" target="_blank" ><img height="20%" width="20%" src="http://graph.facebook.com/' + fbid + '/picture" /></a>';
+            ret = '<img height="20%" width="20%" src="http://graph.facebook.com/' + fbid + '/picture" />';
           }
           return ret;
         };
