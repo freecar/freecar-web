@@ -94,9 +94,6 @@ footer .footer-links li {
 .table-route-list {
   width: 100%;
 }
-.table-route-list td {
-  word-break: break-all;
-}
 .table-route-list td.route-name {
   max-width: 400px;
 }
@@ -111,7 +108,6 @@ footer .footer-links li {
 }
 .table-route-list td.comment {
   max-width: 220px;
-  word-break: break-all;
 }
 .dataTables_filter {
   width: 100%;
