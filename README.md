@@ -1,12 +1,12 @@
-freecar
+FreeCar
 =======
 
-Freecar - Carpooling in Armenia
+FreeCar - Carpooling in Armenia
 
 Description
 -----------
 
-Freecar is a simple web application that allows users (drivers) to add routes so others (potential passengers) can carpool.
+FreeCar is a simple web application that allows users (drivers) to add routes so others (potential passengers) can carpool.
 
 The backend runs on [Parse](http://parse.com/), a backend-as-a-service that simplifies app development by providing database, user management, push notifications and other typical functionality and SDK for Web, iOS, Android and other platforms. With Parse we can quickly prototype the app and start developing iOS/Android versions.
 
