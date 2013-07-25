@@ -88,7 +88,9 @@ footer .footer-links li {
 }
 .table-route-list {
   width: 100%;
-  word-break: break-all;
+}
+.table-route-list td.comment {
+  max-width: 150px;
 }
 .dataTables_filter {
   width: 100%;
