@@ -89,8 +89,24 @@ footer .footer-links li {
 .table-route-list {
   width: 100%;
 }
-.table-route-list td.comment {
+.table-route-list td {
+  word-break: break-all;
+}
+.table-route-list td.route-name {
+  max-width: 400px;
+}
+.table-route-list td.author {
   max-width: 150px;
+}
+.table-route-list td.time {
+  max-width: 70px;
+}
+.table-route-list td.phone {
+  max-width: 100px;
+}
+.table-route-list td.comment {
+  max-width: 220px;
+  word-break: break-all;
 }
 .dataTables_filter {
   width: 100%;

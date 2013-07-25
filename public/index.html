@@ -182,8 +182,8 @@
           <tbody>
             <% _.each(routes, function(route) { %>
               <tr>
-                <td><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
-                <td>
+                <td class="route-name"><a href="#" class="use-this-filter"><%= route.get('from') %></a> &mdash; <a href="#" class="use-this-filter"><%= route.get('to') %></a></td>
+                <td class="author">
                     <% if(route.get('fbid')) { %>
                     <a target="_blank" href='http://facebook.com/<%= route.get("fbid") %>'><%= fbImage(route.get('fbid')) %></a>
                     <a target="_blank" href='http://facebook.com/<%= route.get("fbid") %>'><%= route.get('name') %></a>
@@ -191,8 +191,8 @@
                     <%= route.get('name') %>
                     <% } %>
                 </td>
-                <td><%= route.get('time') %></td>
-                <td><%= route.get('phone') %></td>
+                <td class="time"><%= route.get('time') %></td>
+                <td class="phone"><%= route.get('phone') %></td>
                 <td class="comment"><%= route.get('comment') %></td>
               </tr>
             <% }); %>
