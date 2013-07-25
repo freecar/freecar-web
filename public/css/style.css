@@ -31,8 +31,13 @@ a.brand small {
 .navbar-inner ul.nav li {
   line-height: 32px;
 }
+.navbar-inner #likebutton {
+  float: right;
+  margin: 17px 17px 0 17px;
+}
 .navbar-inner #login-button {
   margin-top: 12px;
+  float: right;
 }
 p {
   font-size: 12px;

@@ -33,9 +33,14 @@ a.brand{
 			line-height: 32px;
 		}
 	}
-	#login-button{
-		margin-top: 12px;
-	}
+  #likebutton {
+    float: right;
+    margin: 17px 17px 0 17px;
+  }
+  #login-button{
+    margin-top: 12px;
+    float: right;
+  }
 }
 p{
 	font-size: 12px;
@@ -94,7 +99,26 @@ footer {
 }
 .table-route-list{
 	width: 100%;
-	
+
+  td {
+    word-break: break-all;
+  }
+  td.route-name {
+    max-width: 400px;
+  }
+  td.author {
+    max-width: 150px;
+  }
+  td.time {
+    max-width: 70px;
+  }
+  td.phone {
+    max-width: 100px;
+  }
+  td.comment {
+    max-width: 220px;
+    word-break: break-all;
+  }
 }
 .dataTables_filter{
 	width: 100%;
