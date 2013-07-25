@@ -33,11 +33,11 @@ $(function() {
             var template = _.template($('#add-route-template').html());
             that.$el.html(template);
             routes.query = new Parse.Query(Route);
-            routes.query.limit(500);
-            if user.get('name') === 'admin':
+            if (user.get('username') === 'admin') {
                 routes.query.limit(500);
-            else:
+            } else {
                 routes.query.equalTo('user', user);
+            }
             routes.fetch({
                 success: function(routes) {
                     var template = _.template($('#route-list-template').html(),
