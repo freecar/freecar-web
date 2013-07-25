@@ -87,32 +87,32 @@
               <div class="control-group">
                 <label class="control-label">Վարորդ</label>
                 <div class="controls">
-                  <input type="text" class="name" name="name" placeholder="անուն" value="<%= route ? route.get('name'):''%>" />
+                  <input type="text" required="required" class="name" name="name" placeholder="անուն" value="<%= route ? route.get('name'):''%>" />
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Երթուղի</label>
                 <div class="controls">
-                  <textarea rows="4" class="from" name="from" placeholder="օրինակ՝ Նժդեհ, Արշակունյաց, Լուսավորիչ, Պարոնյան, Պռոշյան, Բաղրամյան"><%= route ? route.get('from'):''%></textarea>
+                  <textarea rows="4" required="required" class="from" name="from" placeholder="օրինակ՝ Նժդեհ, Արշակունյաց, Լուսավորիչ, Պարոնյան, Պռոշյան, Բաղրամյան"><%= route ? route.get('from'):''%></textarea>
                   <span class="help-inline"><small>Հայատառ գրելը ողջունվում է</small></span>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Վերջնակետ</label>
                 <div class="controls">
-                  <input type="text" class="to" name="to" placeholder="օրինակ՝ Կոմիտաս" value="<%= route ? route.get('to'):''%>" />
+                  <input type="text" required="required" class="to" name="to" placeholder="օրինակ՝ Կոմիտաս" value="<%= route ? route.get('to'):''%>" />
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Ժամը</label>
                 <div class="controls">
-                  <input type="time" class="time" name="time" value="<%= route ? route.get('time'):''%>" />
+                  <input type="time" required="required" class="time" name="time" value="<%= route ? route.get('time'):''%>" />
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Հեռախոս</label>
                 <div class="controls">
-                  <input type="tel" class="phone" name="phone" value="<%= route ? route.get('phone'):''%>" />
+                  <input type="tel" required="required" class="phone" name="phone" value="<%= route ? route.get('phone'):''%>" />
                 </div>
               </div>
               <div class="control-group">
