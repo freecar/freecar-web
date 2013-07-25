@@ -108,6 +108,7 @@ footer .footer-links li {
 }
 .table-route-list td.comment {
   max-width: 220px;
+  word-break: break-all;
 }
 .dataTables_filter {
   width: 100%;
