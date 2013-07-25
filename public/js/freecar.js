@@ -173,16 +173,14 @@ $(function() {
                 success: function(user) {
                     
                     $('#login-button').hide();
+                    $(".modal:visible").modal("hide");
                     
                     routeList.render();
                     self.undelegateEvents();
                     delete self;
-                    $(".modal:visible").modal("hide");
                 },
                 error: function(user, error) {
-                    self.$(".login-form .error")
-                        .html("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Invalid username or password. Please try again.")
-                        .show();
+                    self.$(".login-form .error").show();
                 }
             });
 
@@ -197,6 +195,7 @@ $(function() {
                 success: function(user) {
                     
                     $('#login-button').hide();
+                    $(".modal:visible").modal("hide");
                     
                     routeList.render()
                     self.undelegateEvents();
