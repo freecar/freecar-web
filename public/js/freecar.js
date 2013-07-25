@@ -21,8 +21,9 @@ $(function() {
     var RouteList = Parse.View.extend({
         el: '.content',
         render: function() {
+            var user = Parse.User.current();
             
-            if(Parse.User.current()){
+            if( user ){
                 
                 $('#login-button').hide();
             }
@@ -32,7 +33,11 @@ $(function() {
             var template = _.template($('#add-route-template').html());
             that.$el.html(template);
             routes.query = new Parse.Query(Route);
-            routes.query.equalTo('user', Parse.User.current());
+            routes.query.limit(500);
+            if user.get('name') === 'admin':
+                routes.query.limit(500);
+            else:
+                routes.query.equalTo('user', user);
             routes.fetch({
                 success: function(routes) {
                     var template = _.template($('#route-list-template').html(),
