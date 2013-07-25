@@ -105,6 +105,9 @@ footer .footer-links li {
 .modal form {
   margin-bottom: 0;
 }
+.modal .edit-route-form .control-group {
+  margin-bottom: 10px;
+}
 .modal#loginModal .modal-header {
   border: 0;
 }

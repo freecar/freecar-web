@@ -87,19 +87,20 @@
               <div class="control-group">
                 <label class="control-label">Վարորդ</label>
                 <div class="controls">
-                  <input type="text" class="name" name="name" value="<%= route ? route.get('name'):''%>" />
+                  <input type="text" class="name" name="name" placeholder="անուն" value="<%= route ? route.get('name'):''%>" />
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Երթուղու սկիզբ</label>
+                <label class="control-label">Երթուղի</label>
                 <div class="controls">
-                  <input type="text" class="from" name="from" value="<%= route ? route.get('from'):''%>" />
+                  <textarea rows="4" class="from" name="from" placeholder="օրինակ՝ Նժդեհ, Արշակունյաց, Լուսավորիչ, Պարոնյան, Պռոշյան, Բաղրամյան"><%= route ? route.get('from'):''%></textarea>
+                  <span class="help-inline"><small>Հայատառ գրելը ողջունվում է</small></span>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Վերջնակետ</label>
                 <div class="controls">
-                  <input type="text" class="to" name="to" value="<%= route ? route.get('to'):''%>" />
+                  <input type="text" class="to" name="to" placeholder="օրինակ՝ Կոմիտաս" value="<%= route ? route.get('to'):''%>" />
                 </div>
               </div>
               <div class="control-group">
