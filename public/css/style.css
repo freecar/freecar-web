@@ -196,6 +196,9 @@ th.sorting_desc:after {
 table.routestable th:active {
   outline: none;
 }
+/*
+  Modal transition change
+----------------------------*/
 .modal.fade {
   top: 10%;
   -webkit-transform: scale(0.7);
@@ -214,6 +217,16 @@ table.routestable th:active {
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
+}
+/*
+  Make FB LikeBox Fluid Width for tablets/phones
+-----------------------------------------*/
+@media screen and (max-width: 767px) {
+  .fb-like-box,
+  .fb-like-box span,
+  .fb-like-box span iframe[style] {
+    width: 100% !important;
+  }
 }
 /* overwrite 1200 */
 /* end of overwrite */
