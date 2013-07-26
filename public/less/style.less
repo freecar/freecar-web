@@ -247,6 +247,9 @@ table.routestable th:active {
 }
 
 
+/*
+  Modal transition change
+----------------------------*/
 .modal.fade {
   top: 10%;
   -webkit-transform: scale(0.7);
@@ -269,6 +272,17 @@ table.routestable th:active {
           transform: scale(1);
 }
 
+
+/*
+  Make FB LikeBox Fluid Width for tablets/phones
+-----------------------------------------*/
+@media screen and (max-width: 767px) {
+  .fb-like-box,
+  .fb-like-box span,
+  .fb-like-box span iframe[style] {
+    width: 100% !important;
+  }
+}
 
 
 /* overwrite 1200 */
