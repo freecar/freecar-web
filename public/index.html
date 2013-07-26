@@ -355,6 +355,7 @@
       <script type="text/javascript" src="js/vendor/load-image.min.js"></script>
       <!-- <script type="text/javascript" src="js/vendor/responsive-tables.js"></script>    -->  
       <script type="text/javascript" src="js/vendor/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
       <script type="text/javascript" src="js/freecar.js"></script>
 
       <!-- Facebook -->
@@ -390,21 +391,29 @@
         };
 
         <!-- UserVoice JavaScript SDK (only needed once on a page) -->
-        (function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/jQR6WfVhTAHJoJaam1DJSQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()
+        enquire.register("screen and (min-width:768px)", {
 
-        // A tab to launch the Classic Widget
-        UserVoice = window.UserVoice || [];
-        UserVoice.push(['showTab', 'classic_widget', {
-            mode: 'full',
-            primary_color: '#cc6d00',
-            link_color: '#007dbf',
-            default_mode: 'feedback',
-            forum_id: 216016,
-            tab_label: 'Կապ / Առաջարկություններ',
-            tab_color: '#cc6d00',
-            tab_position: 'middle-left',
-            tab_inverted: false
-        }]);
+            match : function() {
+
+                (function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/jQR6WfVhTAHJoJaam1DJSQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()
+
+                // A tab to launch the Classic Widget
+                UserVoice = window.UserVoice || [];
+                UserVoice.push(['showTab', 'classic_widget', {
+                    mode: 'full',
+                    primary_color: '#cc6d00',
+                    link_color: '#007dbf',
+                    default_mode: 'feedback',
+                    forum_id: 216016,
+                    tab_label: 'Կապ / Առաջարկություններ',
+                    tab_color: '#cc6d00',
+                    tab_position: 'middle-left',
+                    tab_inverted: false
+                }]);
+            }
+        });
+
+
       </script>
 
       <!-- Google Analytics -->
