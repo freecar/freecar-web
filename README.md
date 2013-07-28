@@ -3,6 +3,8 @@ FreeCar
 
 FreeCar - Carpooling in Armenia
 
+Please read the [Developer Guidline](https://github.com/freecar/web/wiki/Developer-Guidline) before making contributions.
+
 Description
 -----------
 
