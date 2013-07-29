@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta property="og:title" content="Անվճար Մեքենա"/>
     <meta property="og:image" content="http://freecar.am/big_logo.png"/>
     <meta property="og:site_name" content="Անվճար Մեքենա"/>
@@ -101,6 +102,9 @@
                 <label class="control-label">Վերջնակետ</label>
                 <div class="controls">
                   <input type="text" required="required" class="to" name="to" placeholder="օրինակ՝ Կոմիտաս" value="<%= route ? route.get('to'):''%>" />
+                  <button type="button" class="btn btn-inverse" data-toggle="collapse" data-target="#map">
+                        <i class="icon-map-marker icon-white"></i>
+                  </button>
                 </div>
               </div>
               <div class="control-group">
@@ -123,6 +127,7 @@
               </div>
             </fieldset>
           </div>
+          <div id="map" class="collapse" style="height:200px"></div>
           <div class="modal-footer">
             <% if(route) { %>
               <input type="hidden" class="id" value="<%= route.id %>" />
@@ -356,6 +361,10 @@
       <!-- <script type="text/javascript" src="js/vendor/responsive-tables.js"></script>    -->  
       <script type="text/javascript" src="js/vendor/jquery.dataTables.min.js"></script>
       <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
+      <script type="text/javascript"
+           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzCiH8exJgMybXo5HzVz6q0YngG3uZ1sQ&sensor=true&libraries=drawing">
+      </script>
+      <script type="text/javascript" src="js/freecarmap.js"></script>
       <script type="text/javascript" src="js/freecar.js"></script>
 
       <!-- Facebook -->

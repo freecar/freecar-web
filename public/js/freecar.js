@@ -64,6 +64,7 @@ $(function() {
         el: '#editModal',
         initialize: function() {
             this.routes = new Routes;
+              
         },
         render: function(options) {
             if (options.id) {
@@ -83,6 +84,8 @@ $(function() {
                 this.$el.modal("show");
                 router.navigate('', {trigger: true});
             }
+            var freecarMap = new FreecarMap(this.$('.from'), this.$('.to'));
+            freecarMap.initialize("map");
         },
         events: {
             'submit .edit-route-form': 'saveRoute',
@@ -316,3 +319,4 @@ $(function() {
     Parse.history.start();
 
 });
+    
